@@ -2,7 +2,6 @@
 
 #install program
 yum install -y vim 
-yum install -y shadowsocks
 yum install -y man 
 yum -y update
 yum install -y zlib-devel bzip2-devel openssl-devel xz-libs wget
@@ -29,7 +28,7 @@ cd setuptools-17.5
 python setup.py install
 easy_install pip
 pip install ipython
-
+pip install shadowsocks
 
 
 #stop iptables
