@@ -18,7 +18,7 @@ tar -xvf Python-2.7.8.tar
 cd Python-2.7.8
 ./configure --prefix=/usr/local
 make
-make altinstall
+make install
 ln -s -f /usr/local/bin/python2.7  /usr/bin/python
 
 #instll pip 
