@@ -4,25 +4,36 @@
 yum update -y
 yum install -y vim 
 yum install -y man 
-yum -y update
 yum install -y zlib-devel bzip2-devel openssl-devel xz-libs wget
 yum install bind-utils -y
 yum install -y man 
 yum install -y git 
 yum groupinstall ‘Development Tools‘  -y
 yum install sqlite-devel libxslt-devel libxml2-devel java-1.7.0-openjdk libpcap-devel nano openssl-devel zlib-devel libffi-devel gdbm-devel readline-devel nano wget -y
+yum install -y lrzsz
+yum install -y gcc
 
+yum install -y fping 
+yum install -y whois
+#install metasploit 
+
+cd /opt
+
+wget http://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run 
+chmod +x metasploit-latest-linux-x64-installer.run
+
+/opt/metasploit-latest-linux-x64-installer.run
 
 #install python 2.7
-cd /tmp
-wget http://www.python.org/ftp/python/2.7.8/Python-2.7.8.tar.xz
-xz -d Python-2.7.8.tar.xz
-tar -xvf Python-2.7.8.tar
-cd Python-2.7.8
+wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz
+xz -d Python-2.7.13.tar.xz
+tar -xvf Python-2.7.13.tar
+cd Python-2.7.13
 ./configure --prefix=/usr/local
 make
 make install
 ln -s -f /usr/local/bin/python2.7  /usr/bin/python
+sed -i '1s/python/python2.7/g'  /bin/yum
 
 #instll pip 
 cd /tmp
@@ -33,15 +44,14 @@ python setup.py install
 easy_install pip
 pip install ipython
 pip install shadowsocks
-
-
-#stop iptables
-/etc/init.d/iptables stop
-
-
+#
+#
+##stop iptables
+#
+#
 #install nc 
 yum install -y nc 
-
+#
 #install nmap v7 ncat nping 
 
 rpm -ivh https://nmap.org/dist/nmap-7.40-1.x86_64.rpm
@@ -51,19 +61,13 @@ rpm -ivh https://nmap.org/dist/nping-0.7.40-1.x86_64.rpm
 #install tcpdump
 yum install -y tcpdump
 
-#install hydra
+##install hydra
 yum install -y hydra
 
 #install sqlmap
 cd /opt 
 git clone https://github.com/sqlmapproject/sqlmap.git
+#
 
 
-
-#install metasploit 
-cd /opt
-	
-wget http://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run
-chmod +x metasploit-latest-linux-x64-installer.run
-
-./metasploit-latest-linux-x64-installer.run
+                                               
