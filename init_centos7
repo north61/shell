@@ -36,7 +36,7 @@ chmod +x metasploit-latest-linux-x64-installer.run
 
 #install python 2.7
 cd /opt
-wget https://www.python.org/ftp/python/2.7.13/Python-2.7.14.tar.xz
+wget https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz
 xz -d Python-2.7.14.tar.xz
 tar -xvf Python-2.7.14.tar
 cd Python-2.7.14
